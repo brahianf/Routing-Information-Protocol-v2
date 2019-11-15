@@ -19,7 +19,15 @@
 ### Especificaciones de Red
 
 ### Comandos CLI
+	* Router ACADEMICO
+	https://github.com/brahianf/Routing-Information-Protocol-v2/blob/master/ACADEMICO.txt
+
+	* Router GESTION
+	https://github.com/brahianf/Routing-Information-Protocol-v2/blob/master/GESTION.txt
 
 ### RIPv2.pkt
+
+	https://github.com/brahianf/Routing-Information-Protocol-v2/blob/master/RIPv_2.pkt
+
 
 

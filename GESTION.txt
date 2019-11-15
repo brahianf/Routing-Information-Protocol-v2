@@ -1,0 +1,41 @@
+Router>enable 
+Router#configure terminal 
+Router(config)#hostname GESTION
+GESTION(config)#interface fastEthernet 0/0
+GESTION(config-if)#ip address 192.168.55.1 255.255.255.0
+GESTION(config-if)#exit
+
+GESTION(config)#interface fastEthernet 0/1
+GESTION(config-if)#ip address 192.168.10.1 255.255.255.0
+GESTION(config-if)#no shutdown 
+GESTION(config-if)#exit
+
+GESTION(config)#interface fastEthernet 0/0
+GESTION(config-if)#no shutdown 
+GESTION(config-if)#exit
+
+GESTION(config)#interface serial 0/0/0
+GESTION(config-if)#ip address 192.168.1.2 255.255.255.0
+GESTION(config-if)#no shutdown 
+GESTION(config-if)#exit
+
+GESTION(config)#interface serial 0/0/1
+GESTION(config-if)#ip address 192.168.2.1 255.255.255.0
+GESTION(config-if)#clock rate 64000
+GESTION(config-if)#no shutdown 
+
+
+GESTION(config)#ip route 0.0.0.0 0.0.0.0 serial 0/0/1
+
+
+GESTION(config)#router rip 
+GESTION(config-router)#version 2
+GESTION(config-router)#no auto-summary
+GESTION(config-router)#default-information originate   
+GESTION(config-router)#network 192.168.1.0 
+GESTION(config-router)#network 192.168.55.0
+GESTION(config-router)#network 192.168.10.0
+GESTION(config-router)#network 192.168.2.0
+GESTION(config-if)#exit
+GESTION(config-if)#exit
+GESTION#copy running-config startup-config
